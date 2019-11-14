@@ -13,6 +13,7 @@ class NoteItem extends React.Component {
     render() {
         return (
             <div>
+              
                 <Card border="primary" style={{ width: '28rem' }}>
                     <Card.Header>{this.props.note.headingNote}</Card.Header>
                     <Card.Body>

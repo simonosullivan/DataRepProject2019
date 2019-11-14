@@ -5,7 +5,7 @@ class Notes extends React.Component{
 
     render(){
         return this.props.myNotes.map((note)=>{
-            return <NoteItem key={note._id} movie={note}></NoteItem>
+            return <NoteItem key={note._id} note={note}></NoteItem>
         });
     }
 }
