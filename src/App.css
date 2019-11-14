@@ -20,3 +20,12 @@
 .App-link {
   color: #09d3ac;
 }
+
+a.navbar-brand{
+  font-style: oblique;
+  font-size: xx-large;
+}
+
+.background {
+  background-image: url("https://c.pxhere.com/images/42/78/53da5e6f38cb92d44f41c0a05db4-1447789.jpg!d");
+  }

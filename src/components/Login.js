@@ -1,14 +1,10 @@
 import React from 'react'
 
-
 class Login extends React.Component {
-
-
-
     render() {
         return (
             <div>
-                <h1>Hello from Login Component</h1>
+                <h1>Please Enter Your Login Details </h1>
 
                 <form onSubmit={this.handleSubmit}>
                     <div>
