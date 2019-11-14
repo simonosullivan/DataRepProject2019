@@ -6,11 +6,7 @@ import axios from 'axios';
 
 class Read extends React.Component{
 
-    state = {
-        movies: [
-           
-        ]
-    };
+    state = {movies: []};
 
     componentDidMount() {
         axios.get('http://localhost:4000/api/movies/')
