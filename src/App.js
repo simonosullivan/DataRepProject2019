@@ -10,11 +10,11 @@ import Nav from 'react-bootstrap/Nav';
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import Create from './components/create';
 import Read from './components/read';
-import Edit from './components/edit';
 import Login from './components/Login';
 import Register from './components/register';
 import addNote from './components/addNote';
 import viewNotes from './components/viewNotes';
+import EditNote from './components/editNote';
 
 
 class App extends React.Component {
@@ -36,7 +36,7 @@ class App extends React.Component {
             <Route path="/register" component={Register}/>
             <Route path="/addNote" component={addNote}/>
             <Route path="/viewNotes" component={viewNotes}/>
-            <Route path="/read" component={Read}/>
+            <Route path="/editNote/:id" component={EditNote}/>
           </Switch>
         </div>
       </BrowserRouter>

@@ -8,7 +8,16 @@ class NoteItem extends React.Component {
 
     constructor() {
         super();
+        this.DeleteNote = this.DeleteNote.bind(this);
     }
+
+    DeleteNote(e) {
+        console.log('Delete Clicked');
+        e.preventDefault();
+          axios.delete('http://localhost:4000/api/notes/'+this.props.note._id)
+          .then()
+          .catch();
+      }
 
     render() {
         return (
@@ -21,7 +30,8 @@ class NoteItem extends React.Component {
                             <p>{this.props.note.bodyNote}</p>
                         </blockquote>
                     </Card.Body>
-                    
+                    <Button variant='danger' onClick={this.DeleteNote}>Delete</Button>
+                    <Link to={'/editNote/'+this.props.note._id} className='btn btn-primary'>Edit</Link>
                 </Card>
             </div>
         )

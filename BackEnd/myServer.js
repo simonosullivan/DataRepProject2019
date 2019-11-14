@@ -55,6 +55,35 @@ app.get('/api/notes', (req, res) => {
     })
 })
 
+app.get('/api/notes/:id',(req,res) =>{
+    console.log(req.params.id);
+
+    NotesModel.findById(req.params.id, (error,data)=>{
+        res.json(data);
+    })
+})
+
+app.delete('/api/notes/:id', (req, res)=>{
+    console.log(req.params.id);
+
+    NotesModel.deleteOne({_id: req.params.id},
+        (error, data)=>{
+            res.json(data);
+        })
+})
+
+app.put('/api/notes/:id', (req, res) => {
+    console.log("Edit: " + req.params.id);
+    console.log(req.body);
+
+    NotesModel.findByIdAndUpdate(req.params.id,
+        req.body,
+        { new: true },
+        (error, data) => {
+            res.json(data);
+        })
+})
+
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

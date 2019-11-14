@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
+import Notes from './notes';
 import axios from 'axios';
 
-
-class addNote extends React.Component {
-
+class EditNote extends React.Component{
+    
     constructor(props){
         super(props);
     
@@ -14,7 +14,7 @@ class addNote extends React.Component {
 
     
     }
-
+    
     handleHeadingNoteChange(e){
         this.setState({HeadingNote: e.target.value});
       }
@@ -22,7 +22,7 @@ class addNote extends React.Component {
     handleBodyNoteChange(e){
     this.setState({BodyNote: e.target.value});
     }
-
+    
     handleSubmit(e){
         e.preventDefault();
     
@@ -31,17 +31,31 @@ class addNote extends React.Component {
           bodyNote : this.state.BodyNote
         }
     
-        axios.post('http://localhost:4000/api/notes', noteObject )  // need to add post method with correct link
+        axios.put('http://localhost:4000/api/notes/'+this.state._id,noteObject)
         .then()
         .catch();
     
         this.setState({HeadingNote: '', BodyNote: ''});
       }
 
-    render() {
-        return (
+      componentDidMount() {
+        alert(this.props.match.params.id);
+
+        axios.get('http://localhost:4000/api/notes/'+this.props.match.params.id)
+        .then((response)=>{
+            this.setState({
+                _id: response.data._id,
+                HeadingNote: response.data.headingNote,
+                BodyNote : response.data.bodyNote
+            })
+        })
+        .catch();
+    }
+
+    render(){
+        return(
             <div>
-                <h1>Hello from addNote Component</h1>
+                <h1>Hello from Edit Component</h1>
 
                 <form onSubmit={this.handleSubmit}>
                     <div>
@@ -57,11 +71,6 @@ class addNote extends React.Component {
                     <textarea rows="10" cols="100" type = "text"
                         value={this.state.BodyNote}
                         onChange= {this.handleBodyNoteChange}>
-                    {/* <input
-                        type = "text"
-                        value={this.state.BodyNote}
-                        onChange= {this.handleBodyNoteChange}
-                    ></input> */}
                     </textarea>
                     
                     </div>
@@ -69,12 +78,12 @@ class addNote extends React.Component {
                     <div>
                         <input
                             type='submit'
-                            value='Save'
+                            value='Edit Note'
                         ></input>
                     </div>
                 </form>
             </div>
-        );
+        )
     }
 }
-export default addNote;
+export default EditNote;
