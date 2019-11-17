@@ -1,6 +1,9 @@
 import React from 'react';
 import Notes from './notes';
 import axios from 'axios';
+import './viewNotes.css';
+import Nav from 'react-bootstrap/Nav';
+
 
 
 class viewNotes extends React.Component {
@@ -19,9 +22,16 @@ class viewNotes extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Hello from viewNotes Component</h1>
-                <Notes myNotes={this.state.notes}></Notes>
+            <div className="wrapper">
+                <div> 
+                    <Notes myNotes={this.state.notes}></Notes>
+                </div>
+
+                <div class="addButton">
+                    <Nav.Link href="/addNote">
+                    <button type="button" class="btn btn-outline-success">Add Note</button>
+                    </Nav.Link>                
+                </div>
             </div>
         );
     }

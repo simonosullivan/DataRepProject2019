@@ -9,14 +9,14 @@ class Login extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label>Username  </label>
-                        <input
+                        <input 
                             type='text'
                         ></input>
                     </div>
 
                     <div>
                         <label>Password  </label>
-                        <input
+                        <input 
                             type='password'
                         ></input>
                     </div>

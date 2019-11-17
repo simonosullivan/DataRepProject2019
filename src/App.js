@@ -30,9 +30,8 @@ class App extends React.Component {
               </Nav>
             <Nav className="ml-auto">
                 <Nav.Link href="/login">
-                  <button type="button" class="btn btn-outline-success">Login</button>
+                  <button type="button" class="btn btn-outline-info">Login</button>
                 </Nav.Link>
-              {/* <Nav.Link href="/register">Sign Up</Nav.Link> */}
             </Nav>
           </Navbar>
 

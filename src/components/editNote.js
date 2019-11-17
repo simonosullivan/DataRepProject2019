@@ -39,8 +39,6 @@ class EditNote extends React.Component{
       }
 
       componentDidMount() {
-        alert(this.props.match.params.id);
-
         axios.get('http://localhost:4000/api/notes/'+this.props.match.params.id)
         .then((response)=>{
             this.setState({

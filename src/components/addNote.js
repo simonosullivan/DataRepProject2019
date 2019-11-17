@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import './addNote.css'
 
 
 class addNote extends React.Component {
@@ -36,41 +37,34 @@ class addNote extends React.Component {
         .catch();
     
         this.setState({HeadingNote: '', BodyNote: ''});
+
+
       }
 
     render() {
         return (
-            <div>
-                <h1>Hello from addNote Component</h1>
+            <div class="container">
+                <h1>New Note</h1>
 
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <label>Heading of note  </label>
-                        <input
+                        <input class="form"
                             type='text'
+                            cols="80"
+                            placeholder="Heading"
                             value={this.state.HeadingNote}
                             onChange= {this.handleHeadingNoteChange}
                         ></input>
-                    </div>
-
-                    <div>
-                    <textarea rows="10" cols="100" type = "text"
-                        value={this.state.BodyNote}
-                        onChange= {this.handleBodyNoteChange}>
-                    {/* <input
-                        type = "text"
-                        value={this.state.BodyNote}
-                        onChange= {this.handleBodyNoteChange}
-                    ></input> */}
-                    </textarea>
                     
+                        <textarea class="form" rows="20" cols="80" type = "text" placeholder="Some text...."
+                            value={this.state.BodyNote}
+                            onChange= {this.handleBodyNoteChange}>
+                        </textarea>
                     </div>
+                    
 
                     <div>
-                        <input
-                            type='submit'
-                            value='Save'
-                        ></input>
+                        <button type="button" type="submit"class="btn btn-success">Save</button>
                     </div>
                 </form>
             </div>
