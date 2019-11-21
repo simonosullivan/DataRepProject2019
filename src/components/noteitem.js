@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 class NoteItem extends React.Component {
 
     constructor() {
@@ -40,8 +40,9 @@ class NoteItem extends React.Component {
       };
 
     render() {
-        return (
-            <div>
+        return (           
+          <div class="row">
+            <div class="col-sm-">
               
                 <Card border="primary" style={{ width: '28rem' }}>
                     <Card.Header>{this.props.note.headingNote}</Card.Header>
@@ -56,6 +57,7 @@ class NoteItem extends React.Component {
                 </Card>
                 <br/>
             </div>
+          </div>
         )
     }
 

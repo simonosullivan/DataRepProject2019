@@ -52,6 +52,7 @@ class addNote extends React.Component {
                             type='text'
                             cols="80"
                             placeholder="Heading"
+                            required="true"
                             value={this.state.HeadingNote}
                             onChange= {this.handleHeadingNoteChange}
                         ></input>

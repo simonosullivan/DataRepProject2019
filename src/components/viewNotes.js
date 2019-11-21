@@ -22,16 +22,21 @@ class viewNotes extends React.Component {
 
     render() {
         return (
+            <div>
+            <div class="jumbotron" >
+                    <h1 class="display-4">Welcome to your notes</h1>
+                    <p class="lead">Store and access your notes anywhere you go</p>
+                </div>
+
+                
             <div className="wrapper">
+
                 <div> 
                     <Notes myNotes={this.state.notes}></Notes>
                 </div>
 
-                <div class="addButton">
-                    <Nav.Link href="/addNote">
-                    <button type="button" class="btn btn-outline-success">Add Note</button>
-                    </Nav.Link>                
-                </div>
+                
+            </div>
             </div>
         );
     }

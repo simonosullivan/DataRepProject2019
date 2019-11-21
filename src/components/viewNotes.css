@@ -1,9 +1,9 @@
 .wrapper{
     position: absolute;
-    width: 300px;
-    height: 200px;
+    width: 1000px;
+    height: 1000px;
     z-index: 15;
-    top: 25%;
+    top: 65%;
     left: 45%;
     margin: -100px 0 0 -150px;
 }
@@ -13,3 +13,10 @@
     bottom: 0%;
     right: 0%;
 }
+
+.jumbotron{
+    background-color: aqua;
+}
+
+
+

@@ -29,14 +29,14 @@ class App extends React.Component {
               </a>
               </Nav>
             <Nav className="ml-auto">
-                <Nav.Link href="/login">
-                  <button type="button" class="btn btn-outline-info">Login</button>
+                <Nav.Link href="/addNote">
+                  <button type="button" class="btn btn-outline-success">Add Note</button>
                 </Nav.Link>
             </Nav>
           </Navbar>
 
           <Switch class="div">
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={viewNotes} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/addNote" component={addNote} />
