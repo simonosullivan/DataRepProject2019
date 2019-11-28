@@ -33,12 +33,8 @@ class addNote extends React.Component {
         }
     
         axios.post('http://localhost:4000/api/notes', noteObject )  // need to add post method with correct link
-        .then()
+        .then(window.location.href="/")
         .catch();
-    
-        this.setState({HeadingNote: '', BodyNote: ''});
-
-
       }
 
     render() {

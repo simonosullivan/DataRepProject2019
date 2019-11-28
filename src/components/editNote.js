@@ -1,6 +1,10 @@
 import React from 'react';
 import Notes from './notes';
 import axios from 'axios';
+import './addNote.css'
+import Nav from 'react-bootstrap/Nav';
+
+
 
 class EditNote extends React.Component{
     
@@ -32,11 +36,9 @@ class EditNote extends React.Component{
         }
     
         axios.put('http://localhost:4000/api/notes/'+this.state._id,noteObject)
-        .then()
+        .then(window.location.href="/")
         .catch();
-    
-        this.setState({HeadingNote: '', BodyNote: ''});
-      }
+        }
 
       componentDidMount() {
         axios.get('http://localhost:4000/api/notes/'+this.props.match.params.id)
@@ -52,32 +54,29 @@ class EditNote extends React.Component{
 
     render(){
         return(
-            <div>
-                <h1>Hello from Edit Component</h1>
+            <div class="container">
+                <h1>Edit Note</h1>
 
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <label>Heading of note  </label>
-                        <input
+                        <input class="form"
                             type='text'
+                            placeholder="Heading"
+                            required="true"
                             value={this.state.HeadingNote}
                             onChange= {this.handleHeadingNoteChange}
                         ></input>
                     </div>
 
                     <div>
-                    <textarea rows="10" cols="100" type = "text"
-                        value={this.state.BodyNote}
-                        onChange= {this.handleBodyNoteChange}>
-                    </textarea>
-                    
+                        <textarea class= "form" rows="10" cols="100" type = "text" placeholder="Some text...."
+                            value={this.state.BodyNote}
+                            onChange= {this.handleBodyNoteChange}>
+                        </textarea>
                     </div>
 
                     <div>
-                        <input
-                            type='submit'
-                            value='Edit Note'
-                        ></input>
+                        <button type="button" type="submit"class="btn btn-success">Edit</button>
                     </div>
                 </form>
             </div>

@@ -29,7 +29,7 @@ class NoteItem extends React.Component {
             {
               label: 'Yes',
               onClick: () => axios.delete('http://localhost:4000/api/notes/'+this.props.note._id)
-                            .then()
+                            .then(window.location.reload())
                             .catch()
             },
             {

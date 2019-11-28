@@ -11,6 +11,7 @@ import addNote from './components/addNote';
 import viewNotes from './components/viewNotes';
 import EditNote from './components/editNote';
 import Home from './components/Home';
+import Footer from './components/footer';
 
 
 
@@ -20,20 +21,21 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div className="App">
-
-          <Navbar>
-            <Nav className="mr-auto">
-              <a class="navbar-brand" href="/">
-                <img src="http://cdn.onlinewebfonts.com/svg/img_454445.png" width="55" height="55" class="d-inline-block align-top" alt=""></img>
-                Notes
-              </a>
+          <div>
+            <Navbar>
+              <Nav className="mr-auto">
+                <a class="navbar-brand" href="/">
+                  <img src="http://cdn.onlinewebfonts.com/svg/img_454445.png" width="55" height="55" class="d-inline-block align-top" alt=""></img>
+                  Notes
+                </a>
+                </Nav>
+              <Nav className="ml-auto">
+                  <Nav.Link href="/addNote">
+                    <button type="button" class="btn btn-outline-success">Add Note</button>
+                  </Nav.Link>
               </Nav>
-            <Nav className="ml-auto">
-                <Nav.Link href="/addNote">
-                  <button type="button" class="btn btn-outline-success">Add Note</button>
-                </Nav.Link>
-            </Nav>
-          </Navbar>
+            </Navbar>
+          </div>
 
           <Switch class="div">
             <Route exact path="/" component={viewNotes} />
@@ -43,9 +45,11 @@ class App extends React.Component {
             <Route path="/viewNotes" component={viewNotes} />
             <Route path="/editNote/:id" component={EditNote} />
           </Switch>
+          
 
         </div>
       </BrowserRouter>
+
     );
   }
 }
