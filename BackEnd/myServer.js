@@ -50,24 +50,24 @@ app.post('/api/notes', (req, res) => {
 
 app.get('/api/notes', (req, res) => {
 
-    NotesModel.find((error, data)=>{
-        res.json({notes:data});
+    NotesModel.find((error, data) => {
+        res.json({ notes: data });
     })
 })
 
-app.get('/api/notes/:id',(req,res) =>{
+app.get('/api/notes/:id', (req, res) => {
     console.log(req.params.id);
 
-    NotesModel.findById(req.params.id, (error,data)=>{
+    NotesModel.findById(req.params.id, (error, data) => {
         res.json(data);
     })
 })
 
-app.delete('/api/notes/:id', (req, res)=>{
+app.delete('/api/notes/:id', (req, res) => {
     console.log(req.params.id);
 
-    NotesModel.deleteOne({_id: req.params.id},
-        (error, data)=>{
+    NotesModel.deleteOne({ _id: req.params.id },
+        (error, data) => {
             res.json(data);
         })
 })

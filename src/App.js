@@ -1,17 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
-import Login from './components/Login';
-import Register from './components/register';
 import addNote from './components/addNote';
 import viewNotes from './components/viewNotes';
 import EditNote from './components/editNote';
-import Home from './components/Home';
-import Footer from './components/footer';
+
 
 
 
@@ -28,24 +24,22 @@ class App extends React.Component {
                   <img src="http://cdn.onlinewebfonts.com/svg/img_454445.png" width="55" height="55" class="d-inline-block align-top" alt=""></img>
                   Notes
                 </a>
-                </Nav>
+              </Nav>
               <Nav className="ml-auto">
-                  <Nav.Link href="/addNote">
-                    <button type="button" class="btn btn-outline-success">Add Note</button>
-                  </Nav.Link>
+                <Nav.Link href="/addNote">
+                  <button type="button" class="btn btn-outline-success">Add Note</button>
+                </Nav.Link>
               </Nav>
             </Navbar>
           </div>
 
           <Switch class="div">
             <Route exact path="/" component={viewNotes} />
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
             <Route path="/addNote" component={addNote} />
             <Route path="/viewNotes" component={viewNotes} />
             <Route path="/editNote/:id" component={EditNote} />
           </Switch>
-          
+
 
         </div>
       </BrowserRouter>

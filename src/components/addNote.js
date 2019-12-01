@@ -5,37 +5,37 @@ import './addNote.css'
 
 class addNote extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-    
-        this.state = {HeadingNote: '', BodyNote: ''}
+
+        this.state = { HeadingNote: '', BodyNote: '' }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleHeadingNoteChange = this.handleHeadingNoteChange.bind(this);
         this.handleBodyNoteChange = this.handleBodyNoteChange.bind(this);
 
-    
+
     }
 
-    handleHeadingNoteChange(e){
-        this.setState({HeadingNote: e.target.value});
-      }
-    
-    handleBodyNoteChange(e){
-    this.setState({BodyNote: e.target.value});
+    handleHeadingNoteChange(e) {
+        this.setState({ HeadingNote: e.target.value });
     }
 
-    handleSubmit(e){
+    handleBodyNoteChange(e) {
+        this.setState({ BodyNote: e.target.value });
+    }
+
+    handleSubmit(e) {
         e.preventDefault();
-    
+
         const noteObject = {
-          headingNote: this.state.HeadingNote,
-          bodyNote : this.state.BodyNote
+            headingNote: this.state.HeadingNote,
+            bodyNote: this.state.BodyNote
         }
-    
-        axios.post('http://localhost:4000/api/notes', noteObject )  // need to add post method with correct link
-        .then(window.location.href="/")
-        .catch();
-      }
+
+        axios.post('http://localhost:4000/api/notes', noteObject)  // need to add post method with correct link
+            .then(window.location.href = "/")
+            .catch();
+    }
 
     render() {
         return (
@@ -50,18 +50,18 @@ class addNote extends React.Component {
                             placeholder="Heading"
                             required="true"
                             value={this.state.HeadingNote}
-                            onChange= {this.handleHeadingNoteChange}
+                            onChange={this.handleHeadingNoteChange}
                         ></input>
-                    
-                        <textarea class="form" rows="20" cols="80" type = "text" placeholder="Some text...."
+
+                        <textarea class="form" rows="20" cols="80" type="text" placeholder="Some text...."
                             value={this.state.BodyNote}
-                            onChange= {this.handleBodyNoteChange}>
+                            onChange={this.handleBodyNoteChange}>
                         </textarea>
                     </div>
-                    
+
 
                     <div>
-                        <button type="button" type="submit"class="btn btn-success">Save</button>
+                        <button type="button" type="submit" class="btn btn-success">Save</button>
                     </div>
                 </form>
             </div>

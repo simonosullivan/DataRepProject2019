@@ -6,54 +6,54 @@ import Nav from 'react-bootstrap/Nav';
 
 
 
-class EditNote extends React.Component{
-    
-    constructor(props){
+class EditNote extends React.Component {
+
+    constructor(props) {
         super(props);
-    
-        this.state = {HeadingNote: '', BodyNote: ''}
+
+        this.state = { HeadingNote: '', BodyNote: '' }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleHeadingNoteChange = this.handleHeadingNoteChange.bind(this);
         this.handleBodyNoteChange = this.handleBodyNoteChange.bind(this);
 
-    
+
     }
-    
-    handleHeadingNoteChange(e){
-        this.setState({HeadingNote: e.target.value});
-      }
-    
-    handleBodyNoteChange(e){
-    this.setState({BodyNote: e.target.value});
+
+    handleHeadingNoteChange(e) {
+        this.setState({ HeadingNote: e.target.value });
     }
-    
-    handleSubmit(e){
+
+    handleBodyNoteChange(e) {
+        this.setState({ BodyNote: e.target.value });
+    }
+
+    handleSubmit(e) {
         e.preventDefault();
-    
+
         const noteObject = {
-          headingNote: this.state.HeadingNote,
-          bodyNote : this.state.BodyNote
-        }
-    
-        axios.put('http://localhost:4000/api/notes/'+this.state._id,noteObject)
-        .then(window.location.href="/")
-        .catch();
+            headingNote: this.state.HeadingNote,
+            bodyNote: this.state.BodyNote
         }
 
-      componentDidMount() {
-        axios.get('http://localhost:4000/api/notes/'+this.props.match.params.id)
-        .then((response)=>{
-            this.setState({
-                _id: response.data._id,
-                HeadingNote: response.data.headingNote,
-                BodyNote : response.data.bodyNote
-            })
-        })
-        .catch();
+        axios.put('http://localhost:4000/api/notes/' + this.state._id, noteObject)
+            .then(window.location.href = "/")
+            .catch();
     }
 
-    render(){
-        return(
+    componentDidMount() {
+        axios.get('http://localhost:4000/api/notes/' + this.props.match.params.id)
+            .then((response) => {
+                this.setState({
+                    _id: response.data._id,
+                    HeadingNote: response.data.headingNote,
+                    BodyNote: response.data.bodyNote
+                })
+            })
+            .catch();
+    }
+
+    render() {
+        return (
             <div class="container">
                 <h1>Edit Note</h1>
 
@@ -64,19 +64,19 @@ class EditNote extends React.Component{
                             placeholder="Heading"
                             required="true"
                             value={this.state.HeadingNote}
-                            onChange= {this.handleHeadingNoteChange}
+                            onChange={this.handleHeadingNoteChange}
                         ></input>
                     </div>
 
                     <div>
-                        <textarea class= "form" rows="10" cols="100" type = "text" placeholder="Some text...."
+                        <textarea class="form" rows="10" cols="100" type="text" placeholder="Some text...."
                             value={this.state.BodyNote}
-                            onChange= {this.handleBodyNoteChange}>
+                            onChange={this.handleBodyNoteChange}>
                         </textarea>
                     </div>
 
                     <div>
-                        <button type="button" type="submit"class="btn btn-success">Edit</button>
+                        <button type="button" type="submit" class="btn btn-success">Edit</button>
                     </div>
                 </form>
             </div>
