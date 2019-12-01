@@ -16,6 +16,7 @@ class addNote extends React.Component {
 
     }
 
+    // set state as note changes
     handleHeadingNoteChange(e) {
         this.setState({ HeadingNote: e.target.value });
     }
@@ -24,16 +25,17 @@ class addNote extends React.Component {
         this.setState({ BodyNote: e.target.value });
     }
 
+    // Runs when submitted 
     handleSubmit(e) {
         e.preventDefault();
 
-        const noteObject = {
+        const noteObject = { // sets fields equal to the input
             headingNote: this.state.HeadingNote,
             bodyNote: this.state.BodyNote
         }
 
-        axios.post('http://localhost:4000/api/notes', noteObject)  // need to add post method with correct link
-            .then(window.location.href = "/")
+        axios.post('http://localhost:4000/api/notes', noteObject)  // upload it to server
+            .then(window.location.href = "/") // goes to home page after
             .catch();
     }
 

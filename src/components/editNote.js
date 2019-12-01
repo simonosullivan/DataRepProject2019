@@ -40,10 +40,10 @@ class EditNote extends React.Component {
             .catch();
     }
 
-    componentDidMount() {
+    componentDidMount() { // loads in the selected note infomation by searching for its ID
         axios.get('http://localhost:4000/api/notes/' + this.props.match.params.id)
             .then((response) => {
-                this.setState({
+                this.setState({  // populates the state , so can output on form 
                     _id: response.data._id,
                     HeadingNote: response.data.headingNote,
                     BodyNote: response.data.bodyNote

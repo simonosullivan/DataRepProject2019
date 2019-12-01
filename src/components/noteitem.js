@@ -13,15 +13,15 @@ class NoteItem extends React.Component {
       this.delete = this.delete.bind(this);
     }
 
-    delete = (e) => {
+    delete = (e) => { // Are you sure alert
       confirmAlert({
         title: 'Confirm to Delete',
         message: 'Are you sure to delete this note ?',
         buttons: [
           {
             label: 'Yes',
-            onClick: () => axios.delete('http://localhost:4000/api/notes/' + this.props.note._id)
-              .then(window.location.reload())
+            onClick: () => axios.delete('http://localhost:4000/api/notes/' + this.props.note._id) // sends delete request to server
+              .then(window.location.reload()) // reloads page to see the change
               .catch()
           },
           {

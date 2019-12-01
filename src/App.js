@@ -19,13 +19,14 @@ class App extends React.Component {
         <div className="App">
           <div>
             <Navbar>
-              <Nav className="mr-auto">
+              <Nav className="mr-auto"> {/* margin right - move to left of screen */}
+              {/* image of notebook */}
                 <a class="navbar-brand" href="/">
                   <img src="http://cdn.onlinewebfonts.com/svg/img_454445.png" width="55" height="55" class="d-inline-block align-top" alt=""></img>
                   Notes
                 </a>
               </Nav>
-              <Nav className="ml-auto">
+               <Nav className="ml-auto"> {/* margin left - move to right side of screen */}
                 <Nav.Link href="/addNote">
                   <button type="button" class="btn btn-outline-success">Add Note</button>
                 </Nav.Link>

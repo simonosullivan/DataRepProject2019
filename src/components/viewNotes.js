@@ -11,6 +11,7 @@ class viewNotes extends React.Component {
     state = { notes: [] };
 
     componentDidMount() {
+        // set up connection with server and load contents 
         axios.get('http://localhost:4000/api/notes/')
             .then((response) => {
                 this.setState({ notes: response.data.notes })

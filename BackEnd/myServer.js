@@ -28,15 +28,16 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+// Creating Schema for Database
 const Schema = mongoose.Schema;
-
 const notesSchema = new Schema({
     headingNote: String,
     bodyNote: [String]
 });
-
+// create model 
 const NotesModel = mongoose.model('notes', notesSchema);
 
+// Create New Note
 app.post('/api/notes', (req, res) => {
     console.log(req.body);
 
@@ -48,6 +49,7 @@ app.post('/api/notes', (req, res) => {
     res.json('Data Uploaded');
 })
 
+// Get Notes
 app.get('/api/notes', (req, res) => {
 
     NotesModel.find((error, data) => {
@@ -55,14 +57,7 @@ app.get('/api/notes', (req, res) => {
     })
 })
 
-app.get('/api/notes/:id', (req, res) => {
-    console.log(req.params.id);
-
-    NotesModel.findById(req.params.id, (error, data) => {
-        res.json(data);
-    })
-})
-
+// Delete Note
 app.delete('/api/notes/:id', (req, res) => {
     console.log(req.params.id);
 
@@ -72,6 +67,7 @@ app.delete('/api/notes/:id', (req, res) => {
         })
 })
 
+// Edit Note
 app.put('/api/notes/:id', (req, res) => {
     console.log("Edit: " + req.params.id);
     console.log(req.body);
